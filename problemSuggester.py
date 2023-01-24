@@ -42,7 +42,7 @@ async def suggestProblems(handles, tags, ratings, count = 10):
   return unsolvedProblems
 
 async def main():
-  handles = ['MickyOr', 'jnava1612', 'Anghelo', 'OPF10', 'nicolasalba']
+  handles = ['MickyOr', 'jnava1612', 'Anghelo', 'OPF10', 'nicolasalba', 'pacha2880']
   # handles = ['MickyOr', 'OPF10', 'Anghelo']
   tags = ['']
   # ratings = [1100, 1200, 1300, 1400]

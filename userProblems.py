@@ -10,15 +10,17 @@ async def getUserSolvedProblems(handle):
   options = {
     'handle': handle
   }
+  print(f'Getting solved problems for {handle}')
   x = await requests.get(buildRequest(url, method, options))
-  solvedProblems = []
+  solvedProblems = set()
   for submission in x.json()['result']:
     if 'verdict' in submission and submission['verdict'] == 'OK' and 'problem' in submission and 'name' in submission['problem']:
-      solvedProblems.append(submission['problem']['name'])
+      solvedProblems.add(submission['problem']['name'])
+  print(f'Done.')
   return solvedProblems
 
 async def getGroupSolvedProblems(handles):
-  solvedProblems = []
+  solvedProblems = set()
   for handle in handles:
-    solvedProblems += await getUserSolvedProblems(handle)
+    solvedProblems = solvedProblems | await getUserSolvedProblems(handle)
   return solvedProblems
