@@ -1,9 +1,9 @@
-import requests
+import requests_async as requests
 import json
 from utils import buildRequest
 
-def getProblems(url, method, options, ratings):
-  x = requests.get(buildRequest(url, method, options))
+async def getProblems(url, method, options, ratings):
+  x = await requests.get(buildRequest(url, method, options))
   problems = []
   for problem in x.json()['result']['problems']:
     if ratings == None:
