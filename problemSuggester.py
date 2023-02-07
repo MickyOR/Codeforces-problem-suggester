@@ -12,7 +12,8 @@ ignoredProblemNames = [
   'Подкрутка I',
   'Копирование файлов II',
   'Игра в Девятку II',
-  'Игра в Девятку I'
+  'Игра в Девятку I',
+  'Узкая дорога'
 ]
 
 # Handles should be a list of strings
@@ -42,12 +43,14 @@ async def suggestProblems(handles, tags, ratings, count = 10):
   return unsolvedProblems
 
 async def main():
-  handles = ['MickyOr', 'jnava1612', 'Anghelo', 'OPF10', 'nicolasalba', 'pacha2880']
+  # handles = ['MickyOr', 'jnava1612', 'Anghelo', 'OPF10', 'nicolasalba', 'pacha2880']
   # handles = ['MickyOr', 'OPF10', 'Anghelo']
+  handles = ['alfred555', 'OPF10', 'hentaiman69']
   tags = ['']
   # ratings = [1100, 1200, 1300, 1400]
-  ratings = [1600, 1800, 2000, 2100, 2200]
-  count = 15
+  # ratings = [1600, 1900]
+  ratings = [800]
+  count = 10
   problems = await suggestProblems(handles, tags, ratings, count)
   for problem in problems:
     print(problem)
